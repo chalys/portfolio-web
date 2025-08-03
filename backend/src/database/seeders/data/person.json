@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "firstName": "Carlos Roberto",
+    "lastName": "Arando Llanos",
+    "profession": "Ingeniero de Sistemas",
+    "description": "Developer Full Stack",
+    "country": "Argentina",
+    "birthDate": "1981-11-04",
+    "phone": "+54119123456",
+    "profilePictureUrl": "profilePicture.jpg",
+    "username": "carando",
+    "email": "chalys.all@gmail.com",
+    "password": "calos123+",
+    "enabled": true
+  }
+]
