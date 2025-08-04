@@ -1,5 +1,4 @@
-"use strict";
-
+'use strict';
 const roleJSON = require("./data/roles.json");
 
 /** @type {import('sequelize-cli').Migration} */

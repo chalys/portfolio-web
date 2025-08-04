@@ -1,5 +1,4 @@
 "use strict";
-
 const personJSON = require("./data/persons.json");
 
 /** @type {import('sequelize-cli').Migration} */
