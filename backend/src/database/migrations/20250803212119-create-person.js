@@ -1,82 +1,78 @@
 "use strict";
-
 /** @type {import('sequelize-cli').Migration} */
-
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Persons', {
+    await queryInterface.createTable("Persons", {
       id: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
+        allowNull: false,
         autoIncrement: true,
-        allowNull: false
+        primaryKey: true,
+        type: Sequelize.INTEGER,
       },
       firstName: {
+        allowNull: false,
         type: Sequelize.STRING,
-        allowNull: false
       },
       lastName: {
+        allowNull: false,
         type: Sequelize.STRING,
-        allowNull: false
       },
       profession: {
+        allowNull: true,
         type: Sequelize.STRING,
-        allowNull: true
       },
       description: {
+        allowNull: true,
         type: Sequelize.TEXT,
-        allowNull: true
       },
       country: {
+        allowNull: false,
         type: Sequelize.STRING,
-        allowNull: false
       },
       birthDate: {
-        type: Sequelize.DATE,
-        allowNull: false
+        allowNull: false,
+        type: Sequelize.DATEONLY,
       },
       phone: {
+        allowNull: true,
         type: Sequelize.STRING,
-        allowNull: true
       },
       profilePictureUrl: {
+        allowNull: true,
         type: Sequelize.STRING,
-        allowNull: true
       },
       username: {
-        type: Sequelize.STRING,
         allowNull: false,
-        unique:true
+        unique: true,
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING,
         allowNull: false,
-        unique:true
+        unique: true,
+        type: Sequelize.STRING,
       },
       password: {
+        allowNull: false,
         type: Sequelize.STRING,
-        allowNull: false
       },
       enabled: {
+        allowNull: false,
+        defaultValue: true,
         type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: true
       },
-      // otros campos...
       createdAt: {
-        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: new Date()
+        defaultValue: new Date(),
+        type: Sequelize.DATE,
       },
       updatedAt: {
-        type: Sequelize.DATE,
         allowNull: false,
-        defaultValue: new Date()
-      }
+        defaultValue: new Date(),
+        type: Sequelize.DATE,
+      },
     });
   },
-
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Persons');
-  }
+    await queryInterface.dropTable("Persons");
+  },
 };

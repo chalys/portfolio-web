@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "name": "Admin",    
+    "description": "Rol con permisos de administrador para gestionar todos los aspectos del sistema"    
+  },
+    {
+    "id": 2,
+    "name": "User",    
+    "description": "Rol estándar para usuarios con permisos básicos"    
+  }
+]
