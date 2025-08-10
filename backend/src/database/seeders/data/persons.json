@@ -12,6 +12,72 @@
     "username": "carando",
     "email": "chalys.all@gmail.com",
     "password": "calos123+",
-    "enabled": true
+    "enabled": true,
+    "education": [
+      {
+        "institutionName": "Universidad Mayor Real y Pontificia de San Francisco Xavier de Chuquisaca",
+        "degree": "Licenciatura",
+        "fieldOfStudy": "Ingeniería de Sistemas",
+        "startDate": "2000-01-20",
+        "endDate": "2005-11-20",
+        "description": "Formación en ingeniería de sistemas con enfoque en desarrollo de software y gestión de proyectos tecnológicos.",
+        "institutionLogoUrl": "umrpsfxch-logo.png"
+      }
+    ],
+    "experience": [
+      {
+        "companyName": "Banco Prodem S.A.",
+        "position": "Asistente de Tecnología de la Información",
+        "startDate": "2000-01-20",
+        "endDate": "2005-11-20",
+        "description": "Soporte técnico y mantenimiento de sistemas informáticos en entidad financiera.",
+        "companyLogoUrl": "bancoprodem-logo.png"
+      }
+    ],
+    "skill": [
+      {
+        "skillName": "JavaScript",
+        "level": "Avanzado",
+        "skillType": "hard",
+        "skillLogoUrl": "javascript-logo.png"
+      },
+      {
+        "skillName": "Node.js",
+        "level": "Intermedio",
+        "skillType": "hard",
+        "skillLogoUrl": "nodejs-logo.png"
+      },
+      {
+        "skillName": "Trabajo en equipo",
+        "level": "Experto",
+        "skillType": "soft",
+        "skillLogoUrl": "teamwork-logo.png"
+      }
+    ],
+    "project": [
+      {
+        "title": "Simplemente Juguetes - E-commerce Full Stack",
+        "description": "Proyecto integrador desarrollado como parte del bootcamp de SoyHenry. Plataforma de e-commerce especializada en juguetes, con carrito de compras, autenticación de usuarios y panel de administración.",
+        "startDate": "2023-07-01",
+        "endDate": "2024-03-01",
+        "projectUrl": "https://simplemente-juguetes.vercel.app",
+        "repositoryUrl": "https://github.com/henry-labs/simplemente-juguetes"
+      }
+    ],
+    "socialMedia": [
+      {
+        "platformName": "LinkedIn",
+        "profileUrl": "https://www.linkedin.com/in/tu-usuario"
+      },
+      {
+        "platformName": "GitHub",
+        "profileUrl": "https://github.com/tu-usuario"
+      },
+      {
+        "platformName": "Instagram",
+        "profileUrl": "https://instagram.com/tu-usuario"
+      }
+    ],
+    "role": "User"
   }
 ]

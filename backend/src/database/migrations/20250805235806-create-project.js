@@ -2,63 +2,48 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("persons", {
+    await queryInterface.createTable("projects", {
       id: {
-        allowNull: false,
-        primaryKey: true,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        type: Sequelize.UUID,  
-      },
-      firstName: {
+        primaryKey: true,
         allowNull: false,
-        type: Sequelize.STRING,
       },
-      lastName: {
+      title: {
         allowNull: false,
-        type: Sequelize.STRING,
-      },
-      profession: {
-        allowNull: true,
         type: Sequelize.STRING,
       },
       description: {
         allowNull: true,
         type: Sequelize.TEXT,
       },
-      country: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      birthDate: {
+      startDate: {
         allowNull: false,
         type: Sequelize.DATEONLY,
       },
-      phone: {
+      endDate: {
+        allowNull: true,
+        type: Sequelize.DATEONLY,
+      },
+      projectUrl: {
         allowNull: true,
         type: Sequelize.STRING,
       },
-      profilePictureUrl: {
+      repositoryUrl: {
         allowNull: true,
         type: Sequelize.STRING,
       },
-      username: {
+      personId: {
         allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      email: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      enabled: {
-        allowNull: false,
-        defaultValue: true,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.UUID,
+        references: {
+          model: {
+            tableName: "persons",
+          },
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       createdAt: {
         allowNull: false,
@@ -73,6 +58,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("persons");
+    await queryInterface.dropTable("projects");
   },
 };

@@ -2,63 +2,48 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("persons", {
+    await queryInterface.createTable("experiences", {
       id: {
-        allowNull: false,
-        primaryKey: true,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
-        type: Sequelize.UUID,  
+        primaryKey: true,
+        allowNull: false,
       },
-      firstName: {
+      companyName: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      lastName: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      profession: {
+      position: {
         allowNull: true,
         type: Sequelize.STRING,
+      },
+      startDate: {
+        allowNull: false,
+        type: Sequelize.DATEONLY,
+      },
+      endDate: {
+        allowNull: true,
+        type: Sequelize.DATEONLY,
       },
       description: {
         allowNull: true,
         type: Sequelize.TEXT,
       },
-      country: {
+      companyLogoUrl: {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      birthDate: {
+      personId: {
         allowNull: false,
-        type: Sequelize.DATEONLY,
-      },
-      phone: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-      profilePictureUrl: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-      username: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      email: {
-        allowNull: false,
-        unique: true,
-        type: Sequelize.STRING,
-      },
-      password: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      enabled: {
-        allowNull: false,
-        defaultValue: true,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.UUID,
+        references: {
+          model: {
+            tableName: "persons",
+          },
+          key: "id",
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       },
       createdAt: {
         allowNull: false,
@@ -73,6 +58,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("persons");
+    await queryInterface.dropTable("experiences");
   },
 };
