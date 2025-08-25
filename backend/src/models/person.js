@@ -1,6 +1,8 @@
 "use strict";
-1;
+
 const { Model } = require("sequelize");
+const { v4: uuidv4 } = require('uuid'); // Asegúrate de instalar uuid: npm install uuid
+
 module.exports = (sequelize, DataTypes) => {
   class Person extends Model {
     static associate(models) {
@@ -8,30 +10,16 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "personId",
         as: "educations",
       });
-      Person.hasMany(models.Project, {
-        foreignKey: "personId",
-        as: "projects",
-      });
-      Person.hasMany(models.Skill, {
-        foreignKey: "personId",
-        as: "skills",
-      });
-      Person.hasMany(models.Experience, {
-        foreignKey: "personId",
-        as: "experiences",
-      });
-      Person.hasMany(models.socialMedia, {
-        foreignKey: "personId",
-        as: "socialMedia",
-      });
-      Person.belongsToMany(models.personRole, {
-        foreignKey: "personId",
-        as: "personRoles",
-      });
     }
   }
   Person.init(
     {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4, // Esto genera automáticamente un UUID
+        primaryKey: true,
+        allowNull: false,
+      },
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
       profession: DataTypes.STRING,
@@ -44,14 +32,15 @@ module.exports = (sequelize, DataTypes) => {
       email: DataTypes.STRING,
       password: DataTypes.STRING,
       enabled: DataTypes.BOOLEAN,
-      createdAt: DataTypes.DATE,
-      updatedAt: DataTypes.DATE,
+      deletedAt: DataTypes.DATE,
     },
     {
       sequelize,
-      modelName: "Person",
+      //modelName: "Person",
+      tableName: "persons",
       onDelete: "CASCADE",
       paranoid: true,
+      timestamps: true,
     }
   );
   return Person;

@@ -3,10 +3,7 @@ const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Education extends Model {
     static associate(models) {
-      Education.belongsTo(models.Person, {
-        foreignKey: "personId",
-        as: "persons",
-      });
+      
     }
   }
   Education.init(
@@ -22,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Education",
+//      modelName: "Education",
+      tableName: "educations",
       timestamps: false,
       onDelete: "CASCADE",
     }
